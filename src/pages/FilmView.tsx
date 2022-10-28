@@ -10,7 +10,7 @@ import { SwFilm } from '../types/SwFilm';
 
 export function FilmView() {
   const { id: routeId } = useParams();
-  const [film] = useSwapi<SwFilm | null>(`/films/${routeId}`, null);
+  const [film] = useSwapi<SwFilm | null>(`/films/${routeId}`, '', null);
 
   if (!film) {
     return <Spinner />;

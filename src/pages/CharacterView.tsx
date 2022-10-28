@@ -11,7 +11,7 @@ import { SwCharacter } from '../types/SwCharacter';
 
 export function CharacterView() {
   const { id: routeId } = useParams();
-  const [character] = useSwapi<SwCharacter | null>(`/people/${routeId}`, null);
+  const [character] = useSwapi<SwCharacter | null>(`/people/${routeId}`, '', null);
 
   if (!character) {
     return <Spinner />;

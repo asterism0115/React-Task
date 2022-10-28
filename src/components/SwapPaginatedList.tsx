@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { useSwapi } from '../hooks/useSwapi';
 import { Paginated } from '../types/Paginated';
 import { Pagination } from './Pagination';
@@ -13,15 +13,17 @@ const List = styled.ul`
 
 export interface SwapPaginatedListProps<T> {
   apiPath: string;
+  search: string;
   children: (item: T) => ReactNode;
 }
 
 export function SwapPaginatedList<T>({
   apiPath,
+  search,
   children,
 }: SwapPaginatedListProps<T>) {
   const [page, setPage] = useState(apiPath);
-  const [list] = useSwapi<Paginated<T> | null>(page, null);
+  const [list] = useSwapi<Paginated<T> | null>(page, search, null);
 
   if (!list) {
     return <Spinner />;

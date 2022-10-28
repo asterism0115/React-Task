@@ -10,7 +10,7 @@ import { SwSpecies } from '../types/SwSpecies';
 
 export function SpeciesView() {
   const { id: routeId } = useParams();
-  const [species] = useSwapi<SwSpecies | null>(`/species/${routeId}`, null);
+  const [species] = useSwapi<SwSpecies | null>(`/species/${routeId}`, '', null);
 
   if (!species) {
     return <Spinner />;

@@ -10,7 +10,7 @@ import { SwLocation } from '../types/SwLocation';
 
 export function LocationView() {
   const { id: routeId } = useParams();
-  const [location] = useSwapi<SwLocation | null>(`/planets/${routeId}`, null);
+  const [location] = useSwapi<SwLocation | null>(`/planets/${routeId}`, '', null);
 
   if (!location) {
     return <Spinner />;

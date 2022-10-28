@@ -10,7 +10,7 @@ import { SwShip } from '../types/SwShip';
 
 export function ShipView() {
   const { id: routeId } = useParams();
-  const [ship] = useSwapi<SwShip | null>(`/starships/${routeId}`, null);
+  const [ship] = useSwapi<SwShip | null>(`/starships/${routeId}`, '', null);
 
   if (!ship) {
     return <Spinner />;

@@ -21,7 +21,7 @@ export interface SwapiLinkProps {
 }
 
 export function SwapiLink({ kind, url }: SwapiLinkProps) {
-  const [item] = useSwapi<SwapiItem | null>(url, null);
+  const [item] = useSwapi<SwapiItem | null>(url, '', null);
 
   if (!item) {
     return null;

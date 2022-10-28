@@ -10,7 +10,7 @@ import { SwVehicle } from '../types/SwVehicle';
 
 export function VehicleView() {
   const { id: routeId } = useParams();
-  const [vehicle] = useSwapi<SwVehicle | null>(`/vehicles/${routeId}`, null);
+  const [vehicle] = useSwapi<SwVehicle | null>(`/vehicles/${routeId}`, '', null);
 
   if (!vehicle) {
     return <Spinner />;
